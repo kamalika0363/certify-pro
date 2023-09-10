@@ -41,10 +41,11 @@ model Account {
 }
 
 model Event {
-  id     String  @id @default(auto()) @map("_id") @db.ObjectId
+  id     String   @id @default(auto()) @map("_id") @db.ObjectId
   name   String?
   image  String
-  userId String  @db.ObjectId
+  userId String   @db.ObjectId
+  time   DateTime
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
